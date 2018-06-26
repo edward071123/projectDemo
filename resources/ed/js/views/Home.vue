@@ -8,7 +8,7 @@
 
     <p>
       <strong>{{ description }}</strong>,
-      <a :href="homepage">Live Demo</a>
+       <router-link :to="{ name: 'Home' }">Live Demo</router-link>
     </p>
 
     <p>Supports Vue 2.0 and Bulma 0.2!</p>

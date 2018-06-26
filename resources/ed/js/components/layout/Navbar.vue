@@ -17,7 +17,19 @@
             </tooltip>
           </a>
         </div>
-        <div class="nav-right is-flex"></div>
+        <div class="nav-right is-flex">
+          <ul >
+            <li v-if="!$auth.check()">
+              <router-link :to="{ name: 'login' }">登入</router-link>
+            </li>
+            <li v-if="!$auth.check()">
+              <router-link :to="{ name: 'register' }">註冊</router-link>
+            </li>
+            <li v-if="$auth.check()" >
+                <a href="#" @click.prevent="$auth.logout()">退出</a>
+            </li>
+          </ul>
+        </div>
       </nav>
     </div>
   </section>
@@ -62,7 +74,6 @@ export default {
   }
 
   .nav-right {
-    align-items: stretch;
     align-items: stretch;
     flex: 1;
     justify-content: flex-end;

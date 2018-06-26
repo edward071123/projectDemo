@@ -17,4 +17,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/news', 'NewsController@index');
+Route::post('auth/register', 'AuthController@register');
+Route::post('auth/login', 'AuthController@login');
+Route::group(['middleware' => 'jwt.auth'], function(){
+	Route::get('auth/user', 'AuthController@user');
+	Route::get('/news', 'NewsController@index');
+	Route::get('/news/recommend', 'NewsController@recommend');
+	Route::get('/news/{id}', 'NewsController@show');
+	Route::post('auth/logout', 'AuthController@logout');
+});
+
+Route::group(['middleware' => 'jwt.refresh'], function(){
+	Route::get('auth/refresh', 'AuthController@refresh');
+});

@@ -12,13 +12,34 @@ export default new Router({
     {
       name: 'Home',
       path: '/',
-      component: require('../views/Home')
-    }
-    ,
+      component: require('../views/Home'),
+      meta: {
+        auth: true
+      }
+    },
     ...generateRoutesFromMenu(menuModule.state.items),
     {
       path: '*',
-      redirect: '/'
+      redirect: '/',
+      meta: {
+        auth: true
+      }
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: require('../components/Register'),
+      meta: {
+        auth: false
+      }
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: require('../components/Login'),
+      meta: {
+        auth: false
+      }
     }
   ]
 })
