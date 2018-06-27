@@ -12,6 +12,17 @@ import tables from './tables'
 const state = {
   items: [
     {
+      name: '客戶列表',
+      path: '/customs',
+      meta: {
+        link: 'customs/index.vue'
+      },
+      component: lazyLoading('customs', true),
+      meta: {
+        auth: true
+      }
+    },
+    {
       name: 'Dashboard',
       path: '/dashboard',
       meta: {

@@ -9,24 +9,16 @@
         </div>
         <div class="nav-center">
           <a class="nav-item hero-brand" href="/">
-            <img src="~assets/logo.svg" :alt="pkginfo.description">
-            <tooltip :label="'v' + pkginfo.version" placement="right" type="success" size="small" :no-animate="true" :always="true" :rounded="true">
-              <div class="is-hidden-mobile">
-                <span class="vue">Vue</span><strong class="admin">Admin</strong>
+            <img src="~assets/logo_baotai.png" :alt="pkginfo.description">
+            <div class="is-hidden-mobile">
+                <span class="vue">寶台建設</span><strong class="admin">後台管理系統</strong>
               </div>
-            </tooltip>
           </a>
         </div>
         <div class="nav-right is-flex">
-          <ul >
-            <li v-if="!$auth.check()">
-              <router-link :to="{ name: 'login' }">登入</router-link>
-            </li>
-            <li v-if="!$auth.check()">
-              <router-link :to="{ name: 'register' }">註冊</router-link>
-            </li>
+          <ul class="control-btn-bar">
             <li v-if="$auth.check()" >
-                <a href="#" @click.prevent="$auth.logout()">退出</a>
+                <a href="#" @click.prevent="$auth.logout()">登出</a>
             </li>
           </ul>
         </div>
@@ -62,7 +54,15 @@ export default {
 
 <style lang="scss">
 @import '~bulma/sass/utilities/variables';
-
+@import '~bulma/sass/utilities/mixins';
+.control-btn-bar{
+  margin-top:2%;
+  margin-right:1%;
+  @include mobile {
+    margin-top:7%;
+    margin-right:5%;
+  }
+}
 .app-navbar {
   position: fixed;
   min-width: 100%;

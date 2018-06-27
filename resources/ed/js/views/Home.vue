@@ -1,17 +1,8 @@
 <template>
-  <div class="content has-text-centered">
+  <div class="content has-text-centered home-content">
     <p>
-      <img width="200" src="~assets/logo.svg" :alt="description">
+      <img width="200" src="~assets/logo_baotai.png" :alt="description">
     </p>
-
-    <h1 class="is-title is-bold">{{ name.replace('-', ' ') }}</h1>
-
-    <p>
-      <strong>{{ description }}</strong>,
-       <router-link :to="{ name: 'Home' }">Live Demo</router-link>
-    </p>
-
-    <p>Supports Vue 2.0 and Bulma 0.2!</p>
   </div>
 </template>
 
@@ -26,7 +17,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.is-title {
-  text-transform: capitalize;
+@import '~bulma/sass/utilities/mixins';
+.home-content{
+  margin-right:180px;
+  @include mobile {
+    margin-right:0px;
+  }
 }
 </style>

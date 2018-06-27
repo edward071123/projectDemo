@@ -25,6 +25,8 @@ Route::group(['middleware' => 'jwt.auth'], function(){
 	Route::get('/news/recommend', 'NewsController@recommend');
 	Route::get('/news/{id}', 'NewsController@show');
 	Route::post('auth/logout', 'AuthController@logout');
+
+	Route::get('/customs', 'CustomController@show');
 });
 
 Route::group(['middleware' => 'jwt.refresh'], function(){

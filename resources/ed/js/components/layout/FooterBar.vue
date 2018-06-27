@@ -2,20 +2,12 @@
   <footer class="footer">
     <div class="container">
       <div class="content has-text-centered">
-        <p class="social">
-          <a :href="'https://github.com/' + repository">
-            <span class="icon">
-              <i class="fa fa-github"></i>
+        <a href="https://www.reddotsolution.com/">REDDOT SOLUTION © 2018</a>.
+        <a href="https://www.facebook.com/%E7%9D%BF%E5%BE%B7%E8%B3%87%E8%A8%8A%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8-258767387485030/?fref=ts">
+            <span class="icon1">
+              <i class="fa fa-facebook"></i>
             </span>
           </a>
-          <a href="https://twitter.com/_fundon">
-            <span class="icon">
-              <i class="fa fa-twitter"></i>
-            </span>
-          </a>
-        </p>
-        <p><span class="icon"><i class="fa fa-code"></i></span> with <span class="icon"><i class="fa fa-heart"></i></span> by <a href="https://github.com/fundon">fundon</a>.</p>
-        <p>Code licensed under <a :href="'https://github.com/' + repository + '/blob/master/LICENSE'">{{ license }}</a>.</p>
       </div>
     </div>
   </footer>
@@ -23,24 +15,23 @@
 
 <script>
 export default {
-
   data () {
     return this.$store.state.pkg
   }
-
 }
 </script>
 
 <style lang="scss">
 @import '~bulma/sass/utilities/mixins';
-
-.footer {
-  margin-left: 180px;
-  
-  @include mobile() {
-    margin-left: 0;
+.icon1{
+    display: inline-block;
+    font-size: 21px;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    width: 1.5rem;
   }
-  
+.footer {
   .social a {
     border-bottom: none !important;
   }

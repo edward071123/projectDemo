@@ -3,7 +3,7 @@
     <div class="level-left">
       <div class="level-item">
         <h3 class="subtitle is-5">
-          <strong>{{ name }}</strong>
+          <strong  v-if="this.getPageName != 'login'">{{ name }}</strong>
         </h3>
       </div>
     </div>
@@ -25,7 +25,8 @@ export default {
 
   data () {
     return {
-      list: null
+      list: null,
+      getPageName:""
     }
   },
 
@@ -43,8 +44,13 @@ export default {
     getList () {
       let matched = this.$route.matched.filter(item => item.name)
       let first = matched[0]
-      if (first && (first.name !== 'Home' || first.path !== '' ) && (first.name !== 'login' && first.name !== 'register')) {
-        matched = [{ name: 'Home', path: '/' }].concat(matched)
+      if (first && (first.name !== '首頁' || first.path !== '' ) ) {
+        if(first.name == 'login'){
+          matched =[{ name: '', path: '' }]
+          this.getPageName = "login";
+        }else{
+          matched = [{ name: '首頁', path: '/' }].concat(matched)
+        }
       }
       this.list = matched
     }

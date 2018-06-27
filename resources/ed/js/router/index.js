@@ -10,7 +10,7 @@ export default new Router({
   scrollBehavior: () => ({ y: 0 }),
   routes: [
     {
-      name: 'Home',
+      name: '首頁',
       path: '/',
       component: require('../views/Home'),
       meta: {
