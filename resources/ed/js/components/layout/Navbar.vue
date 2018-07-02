@@ -8,7 +8,7 @@
           </a>
         </div>
         <div class="nav-center">
-          <a class="nav-item hero-brand" href="/">
+          <a class="nav-item hero-brand" href="/admin">
             <img src="~assets/logo_baotai.png" :alt="pkginfo.description">
             <div class="is-hidden-mobile">
                 <span class="vue">寶台建設</span><strong class="admin">後台管理系統</strong>
@@ -18,7 +18,7 @@
         <div class="nav-right is-flex">
           <ul class="control-btn-bar">
             <li v-if="$auth.check()" >
-                <a href="#" @click.prevent="$auth.logout()">登出</a>
+                <a href="/admin" @click="$auth.logout()">登出</a>
             </li>
           </ul>
         </div>

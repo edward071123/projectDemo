@@ -47,7 +47,7 @@ export default {
       if (first && (first.name !== '首頁' || first.path !== '' ) ) {
         if(first.name == 'login'){
           matched =[{ name: '', path: '' }]
-          this.getPageName = "login";
+          this.getPageName = first.name ;
         }else{
           matched = [{ name: '首頁', path: '/' }].concat(matched)
         }

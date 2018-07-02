@@ -3,6 +3,7 @@ const app = state => state.app
 const device = state => state.app.device
 const sidebar = state => state.app.sidebar
 const effect = state => state.app.effect
+const count = state => state.app.count
 const menuitems = state => state.menu.items
 const componententry = state => {
   return state.menu.items.filter(c => c.meta && c.meta.label === 'Components')[0]
@@ -14,6 +15,7 @@ export {
   device,
   sidebar,
   effect,
+  count,
   menuitems,
   componententry
 }

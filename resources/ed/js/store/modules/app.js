@@ -11,7 +11,8 @@ const state = {
   },
   effect: {
     translate3d: true
-  }
+  },
+  count: 1
 }
 
 const mutations = {
@@ -32,7 +33,11 @@ const mutations = {
     for (let name in effectItem) {
       state.effect[name] = effectItem[name]
     }
+  },
+  [types.INCREASE](state) {
+    state.count += 1;
   }
+
 }
 
 export default {

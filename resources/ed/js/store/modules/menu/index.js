@@ -15,12 +15,11 @@ const state = {
       name: '客戶列表',
       path: '/customs',
       meta: {
-        link: 'customs/index.vue'
+        icon: 'fa-users',
+        link: 'customs/index.vue',
+        auth: false
       },
-      component: lazyLoading('customs', true),
-      meta: {
-        auth: true
-      }
+      component: lazyLoading('customs', true)
     },
     {
       name: 'Dashboard',

@@ -47,6 +47,8 @@
 <script>
     import Vue from 'vue'
     import AddCustomModal from './addCustomModal'
+    import { fetchNewsList } from '../../api/news'
+    import Notification from 'vue-bulma-notification'
     const AddCustomModalComponent = Vue.extend(AddCustomModal)
     const openAddCustomModal = (
         propsData = {
@@ -58,12 +60,14 @@
         })
     }
     export default {
+        components: {
+            Notification
+        },
         created() {
             this.loadCustoms();
         },
         data() {
             return {
-                api: '/customs',
                 isloading: false,
                 customs: [],
                 addModal: null,
@@ -72,14 +76,9 @@
         methods: {
             loadCustoms() {
                 this.isloading = true
-                this.$http({
-                    url: this.api
-                }).then((response) => {
-                    this.isloading = false
+                fetchNewsList().then(response => {
+                    this.isloading = false;
                     this.customs = response.data;
-                }).catch((error) => {
-                    this.isloading = false
-                    console.log(error)
                 })
             },
             openModalAdd () {

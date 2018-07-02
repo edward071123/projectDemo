@@ -19,16 +19,9 @@ export default new Router({
     },
     ...generateRoutesFromMenu(menuModule.state.items),
     {
-      path: '*',
-      redirect: '/',
-      meta: {
-        auth: true
-      }
-    },
-    {
       path: '/register',
       name: 'register',
-      component: require('../components/Register'),
+      component: require('../views/auth/Register'),
       meta: {
         auth: false
       }
@@ -36,7 +29,7 @@ export default new Router({
     {
       path: '/login',
       name: 'login',
-      component: require('../components/Login'),
+      component: require('../views/auth/Login'),
       meta: {
         auth: false
       }

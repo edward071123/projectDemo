@@ -16,3 +16,8 @@ export const switchEffect = ({ commit }, effectItem) => {
     commit(types.SWITCH_EFFECT, effectItem)
   }
 }
+
+
+export const increase= ({ commit }) => {
+  commit(types.INCREASE)
+}
