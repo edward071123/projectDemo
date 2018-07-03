@@ -33,7 +33,7 @@ export default new Router({
       meta: {
         auth: false
       }
-    }
+    },
   ]
 })
 

@@ -17,7 +17,7 @@ const state = {
       meta: {
         icon: 'fa-users',
         link: 'customs/index.vue',
-        auth: false
+        auth: true
       },
       component: lazyLoading('customs', true)
     },
@@ -26,7 +26,8 @@ const state = {
       path: '/dashboard',
       meta: {
         icon: 'fa-tachometer',
-        link: 'dashboard/index.vue'
+        link: 'dashboard/index.vue',
+        auth: true
       },
       component: lazyLoading('dashboard', true)
     },
