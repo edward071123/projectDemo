@@ -13,7 +13,7 @@ const state = {
   items: [
     {
       name: '客戶列表',
-      path: '/customs',
+      path: '/customs/List',
       meta: {
         icon: 'fa-users',
         link: 'customs/index.vue',
