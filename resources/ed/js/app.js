@@ -5,11 +5,11 @@ import NProgress from 'vue-nprogress'
 import { sync } from 'vuex-router-sync';
 import Admin from './views/Admin.vue';
 import Show from './views/Show.vue';
-import adminRouter from './router/admin';
-import showRouter from './router/show';
+import adminRouter from './router/admin/';
+import showRouter from './router/show/';
 import store from './store';
 import * as filters from './filters';
-import { TOGGLE_SIDEBAR } from 'vuex-store/mutation-types';
+import { TOGGLE_SIDEBAR } from 'vuex-store/modules/app';
 
 import VueAxios from 'vue-axios';
 import VueRouter from 'vue-router';

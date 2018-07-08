@@ -3,7 +3,6 @@
         <div class="tile is-ancestor">
             <div class="tile is-parent">
                 <article class="tile is-child box">
-                    <a class="button is-primary is-large modal-button" @click="openModalAdd()">新增客戶</a>
                     <div class="table-responsive">
                         <table class="table is-bordered is-striped is-narrow" :class="{'is-loading': isloading}">
                         <thead>
@@ -20,7 +19,7 @@
                         </thead>
                         <tbody>
                             <tr v-for="custom in customs">
-                                <td>{{custom.no}}</td>
+                                <td>{{custom.id}}</td>
                                 <td>
                                     {{custom.name}}
                                 </td>
@@ -28,7 +27,7 @@
                                 <td>{{custom.mobile}}</td>
                                 <td>{{custom.address}}</td>
                                 <td>{{custom.title}}</td>
-                                <td>{{custom.type}}</td>
+                                <td>{{custom.position}}</td>
                                 <td>
                                     <a href="#">修改</a>
                                 </td>
@@ -46,19 +45,9 @@
 </template>
 <script>
     import Vue from 'vue'
-    import AddCustomModal from './addCustomModal'
     import { fetchNewsList } from '../../api/news'
     import Notification from 'vue-bulma-notification'
-    const AddCustomModalComponent = Vue.extend(AddCustomModal)
-    const openAddCustomModal = (
-        propsData = {
-        visible: true
-        }) => {
-        return new AddCustomModalComponent({
-            el: document.createElement('div'),
-            propsData
-        })
-    }
+
     export default {
         components: {
             Notification
@@ -70,7 +59,6 @@
             return {
                 isloading: false,
                 customs: [],
-                addModal: null,
             }
         },
         methods: {
@@ -80,18 +68,6 @@
                     this.isloading = false;
                     this.customs = response.data;
                 })
-            },
-            openModalAdd () {
-                const addModal = this.addModal || (this.addModal = openAddCustomModal({
-                    title: '新增客戶'
-                }))
-                addModal.$children[0].$on('ok', () => {
-                    console.log('do task')
-                })
-                addModal.$children[0].$on('cancel', () => {
-                    console.log('no task')
-                })
-                addModal.$children[0].active()
             }
         }
     }

@@ -12,12 +12,12 @@ export default new Router({
         {
             name: '前台首頁',
             path: '/',
-            component: require('../views/shows')
+            component: require('../../views/shows')
         },
         {
             name: 'error',
             path: '/*',
-            component: require('../views/error')
+            component: require('../../views/error')
         },
     ]
 })

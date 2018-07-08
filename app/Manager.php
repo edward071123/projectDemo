@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Coutoms extends Model
+class Manager extends Model
 {
-    protected $guarded = ['id'];
+    protected $guarded = ['mid'];
 }

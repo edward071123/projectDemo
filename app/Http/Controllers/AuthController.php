@@ -13,7 +13,7 @@ class AuthController extends Controller
     public function register(RegisterFormRequest $request)
     {
         $user = new User;
-        $user->email = $request->email;
+        $user->account = $request->account;
         $user->name = $request->name;
         $user->password = bcrypt($request->password);
         $user->save();
@@ -26,7 +26,7 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->only('account', 'password');
 
         if ( ! $token = JWTAuth::attempt($credentials)) {
             return response([

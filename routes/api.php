@@ -21,12 +21,17 @@ Route::post('auth/register', 'AuthController@register');
 Route::post('auth/login', 'AuthController@login');
 Route::group(['middleware' => 'jwt.auth'], function(){
 	Route::get('auth/user', 'AuthController@user');
-	Route::get('/news', 'NewsController@index');
-	Route::get('/news/recommend', 'NewsController@recommend');
-	Route::get('/news/{id}', 'NewsController@show');
 	Route::post('auth/logout', 'AuthController@logout');
-
-	Route::get('/customs', 'CustomController@show');
+	Route::group(['namespace' => 'Api'], function() {
+		//news
+        Route::get('/news', 'NewsController@index');
+		Route::get('/news/recommend', 'NewsController@recommend');
+		Route::get('/news/{id}', 'NewsController@show');
+		//customs
+		Route::resource('customs', 'CustomController', ['except' => ['create', 'edit']]);
+		Route::get('/customs', 'CustomController@show');
+		
+    });
 });
 
 Route::group(['middleware' => 'jwt.refresh'], function(){

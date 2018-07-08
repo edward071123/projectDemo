@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCoutomsTable extends Migration
+class CreateVisitTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateCoutomsTable extends Migration
      */
     public function up()
     {
-        Schema::create('coutoms', function (Blueprint $table) {
+        Schema::create('visits', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name','20');
-            $table->integer('tel');
-            $table->integer('mobile');
-            $table->string('address','64');
-            $table->string('title','32');
-            $table->string('position','32');
+            $table->integer('custom_id');
+            $table->string('custom_name','20');
+            $table->integer('project_id');
+            $table->string('project_name','20');
+            $table->integer('manager_id');
+            $table->string('manager_name','20');
             $table->timestamps();
         });
     }
@@ -32,6 +32,6 @@ class CreateCoutomsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('coutoms');
+        Schema::dropIfExists('visits');
     }
 }

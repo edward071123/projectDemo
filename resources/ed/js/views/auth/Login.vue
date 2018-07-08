@@ -6,10 +6,10 @@
             <div class="alert alert-danger" v-if="error">
                 <p>請檢查帳號密碼是否正確</p>
             </div>
-            <form autocomplete="off" @submit.prevent="login" method="post">
+            <form autocomplete="off" @submit.prevent="login()" method="post">
               <div class="block control">
                 <p class="control has-icon">
-                  <input  type="email" id="email"  class="input" placeholder="user@example.com" v-model="email" required>
+                  <input  type="account" id="account"  class="input" placeholder="user@example.com" v-model="account" required>
                   <span class="icon is-small">
                     <i class="fa fa-envelope"></i>
                   </span>
@@ -35,7 +35,7 @@
   export default {
     data(){
       return {
-        email: "test02@gmail.com",
+        account: "test02",
         password: "123123",
         // email: "",
         // password: "",
@@ -45,17 +45,12 @@
     methods: {
       login(){
         var app = this
-        this.$auth.login({
-            params: {
-              email: app.email,
-              password: app.password
-            }, 
-            success: function () {},
-            error: function () {},
-            rememberMe: true,
-            redirect: '/dashboard',
-            fetchUser: true,
-        });       
+        var params = {}
+        params.auth = app.$auth
+        params.account = app.account
+        params.password = app.password
+        params.redirect = '/dashboard'
+        this.$store.dispatch('logIn',params)    
       },
     }
   } 

@@ -7,14 +7,14 @@
             <p>Registration completed. You can now <router-link :to="{name:'login'}">sign in.</router-link></p>
         </div>
         <form autocomplete="off" v-on:submit="register" v-if="!success">
-            <div class="form-group" v-bind:class="{ 'has-error': error && errors.username }">
+            <div class="form-group" v-bind:class="{ 'has-error': error && errors.name }">
                 <label for="name">Name</label>
                 <input type="text" id="name" class="form-control" v-model="name" required>
                 <span class="help-block" v-if="error && errors.name">{{ errors.name }}</span>
             </div>
             <div class="form-group" v-bind:class="{ 'has-error': error && errors.email }">
                 <label for="email">E-mail</label>
-                <input type="email" id="email" class="form-control" placeholder="user@example.com" v-model="email" required>
+                <input type="name" id="email" class="form-control" placeholder="user@example.com" v-model="account" required>
                 <span class="help-block" v-if="error && errors.email">{{ errors.email }}</span>
             </div>
             <div class="form-group" v-bind:class="{ 'has-error': error && errors.password }">
@@ -32,7 +32,7 @@
         data(){
             return {
                 name: '',
-                email: '',
+                account: '',
                 password: '',
                 error: false,
                 errors: {},
@@ -46,7 +46,7 @@
                 this.$auth.register({
                     params: {
                         name: app.name,
-                        email: app.email,
+                        account: app.account,
                         password: app.password
                     }, 
                     success: function () {

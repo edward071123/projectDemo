@@ -1,4 +1,3 @@
-import * as types from '../../mutation-types'
 import lazyLoading from './lazyLoading'
 import charts from './charts'
 import uifeatures from './uifeatures'
@@ -12,14 +11,33 @@ import tables from './tables'
 const state = {
   items: [
     {
-      name: '客戶列表',
-      path: '/customs/List',
+      path: '/customs',
       meta: {
         icon: 'fa-users',
-        link: 'customs/index.vue',
-        auth: true
+        expanded: false,
+        label: '客戶列表'
       },
-      component: lazyLoading('customs', true)
+      component: lazyLoading('customs', true),
+      children: [
+        {
+          name: '客戶列表',
+          path: '',
+          component: lazyLoading('customs/List'),
+          meta: {
+            link: 'customs/List.vue',
+            auth: true
+          }
+        },
+        {
+          name: '新增客戶',
+          path: 'addcustom',
+          component: lazyLoading('customs/AddCustom'),
+          meta: {
+            link: 'customs/AddCustom.vue',
+            auth: true
+          }
+        }
+      ]
     },
     {
       name: 'Dashboard',
@@ -47,19 +65,7 @@ const state = {
   ]
 }
 
-const mutations = {
-  [types.EXPAND_MENU] (state, menuItem) {
-    if (menuItem.index > -1) {
-      if (state.items[menuItem.index] && state.items[menuItem.index].meta) {
-        state.items[menuItem.index].meta.expanded = menuItem.expanded
-      }
-    } else if (menuItem.item && 'expanded' in menuItem.item.meta) {
-      menuItem.item.meta.expanded = menuItem.expanded
-    }
-  }
-}
 
 export default {
-  state,
-  mutations
+  state
 }

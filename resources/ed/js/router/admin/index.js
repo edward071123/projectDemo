@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import menuModule from 'vuex-store/modules/menu'
+import menuModule from './menu'
 
 Vue.use(Router);
 
@@ -12,7 +12,7 @@ export default new Router({
     {
       name: '首頁',
       path: '/',
-      component: require('../views/Home'),
+      component: require('../../views/Home'),
       meta: {
         auth: true
       }
@@ -21,7 +21,7 @@ export default new Router({
     {
       path: '/register',
       name: 'register',
-      component: require('../views/auth/Register'),
+      component: require('../../views/auth/Register'),
       meta: {
         auth: false
       }
@@ -29,10 +29,15 @@ export default new Router({
     {
       path: '/login',
       name: 'login',
-      component: require('../views/auth/Login'),
+      component: require('../../views/auth/Login'),
       meta: {
         auth: false
       }
+    },
+    {
+      name: 'error',
+      path: '/*',
+      component: require('../../views/error')
     },
   ]
 })

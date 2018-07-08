@@ -6,3 +6,11 @@ export function fetchNewsList() {
     method: 'get',
   })
 }
+
+export function createCustom(data) {
+  return request({
+    url: '/customs',
+    method: 'post',
+    data
+  })
+}
