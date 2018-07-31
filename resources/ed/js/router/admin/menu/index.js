@@ -1,5 +1,7 @@
 import lazyLoading from './lazyLoading'
 import charts from './charts'
+import managers from './managers'
+import customs from './customs'
 import uifeatures from './uifeatures'
 import components from './components'
 import tables from './tables'
@@ -10,35 +12,8 @@ import tables from './tables'
 
 const state = {
   items: [
-    {
-      path: '/customs',
-      meta: {
-        icon: 'fa-users',
-        expanded: false,
-        label: '客戶列表'
-      },
-      component: lazyLoading('customs', true),
-      children: [
-        {
-          name: '客戶列表',
-          path: '',
-          component: lazyLoading('customs/List'),
-          meta: {
-            link: 'customs/List.vue',
-            auth: true
-          }
-        },
-        {
-          name: '新增客戶',
-          path: 'addcustom',
-          component: lazyLoading('customs/AddCustom'),
-          meta: {
-            link: 'customs/AddCustom.vue',
-            auth: true
-          }
-        }
-      ]
-    },
+    managers,
+    customs,
     {
       name: 'Dashboard',
       path: '/dashboard',

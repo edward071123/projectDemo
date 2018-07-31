@@ -30,6 +30,9 @@ Route::group(['middleware' => 'jwt.auth'], function(){
 		//customs
 		Route::resource('customs', 'CustomController', ['except' => ['create', 'edit']]);
 		Route::get('/customs', 'CustomController@show');
+		//managers
+		Route::resource('managers', 'ManagerController', ['except' => ['create', 'edit']]);
+		Route::get('/managers', 'ManagerController@show');
 		
     });
 });
