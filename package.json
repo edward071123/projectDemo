@@ -1,12 +1,11 @@
 {
-    "name": "laravel-vue-admin",
+    "name": "laravel-vue",
     "version": "1.0.0",
-    "description": "Laravel Vue Admin Panel Framework",
+    "description": "Laravel Vue Admin dashboard Framework",
     "repository": "laravel/vue-bulma/vue-admin",
-    "license": "MIT",
     "author": {
-        "name": "",
-        "email": "milian221@yeah.net"
+        "name": "Ed",
+        "email": "leonaedo071123@gmail.com"
     },
     "private": true,
     "scripts": {
